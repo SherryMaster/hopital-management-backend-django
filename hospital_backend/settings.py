@@ -143,12 +143,7 @@ DATABASES = {
         "HOST": config('DB_HOST', default=''),
         "PORT": config('DB_PORT', default='', cast=str),
         "OPTIONS": {
-            "sslmode": "require",
-            # PostgreSQL optimization settings
-            "MAX_CONNS": 20,
-            "OPTIONS": {
-                "-c default_transaction_isolation=read committed"
-            }
+            "sslmode": "require"
         } if DB_ENGINE == 'django.db.backends.postgresql' else {},
         # Connection pooling settings
         "CONN_MAX_AGE": 600,  # 10 minutes
